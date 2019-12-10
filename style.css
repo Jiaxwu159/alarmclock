@@ -1,5 +1,10 @@
 * {
     text-align: center;
+
+
+    font-family: 'Faster One', cursive;
+
+
 }
 
 body {
@@ -10,4 +15,5 @@ body {
 
 #heading {
     text-align: center;
+    
 }

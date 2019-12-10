@@ -1,14 +1,38 @@
 function myFunction() {
     var d = new Date();
 
-    var hour = d.getHours() - 12;
+    var hour = d.getHours();
     var min = d.getMinutes(); 
     var secs = d.getSeconds();
+    var theMonth = d.getMonth();
+    var theDate = d.getDate(); 
+    var theYear = d.getFullYear();
 
-    document.getElementById("clock").textContent = d;
-    document.getElementById("hourhour").innerText = hour;
-    document.getElementById("min").textContent = min;
-    document.getElementById("secs").textContent = secs;
+    var session = "AM";
+
+    if (hour == 0) {
+        hour = 12;
+    }
+
+    if (hour > 12) {
+        hour = hour - 12; 
+        session = "PM"
+    }
+    
+    hour = (hour < 10) ? "0" + hour : hour;
+    min = (min < 10) ? "0" + min : min;
+    secs = (secs < 10) ? "0" + secs : secs;
+
+    var dayTime = theMonth + "/" + theDate + "/" + theYear;
+
+    var clockTime = hour + ":" + min + ":" + secs + " " + session ;
+    
+    
+
+    clock.innerText = clockTime;
+    day.innerText = dayTime;
+
   }
   
-myFunction();
+setInterval(myFunction, 1000);
+
