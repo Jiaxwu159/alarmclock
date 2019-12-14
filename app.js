@@ -41,6 +41,16 @@ var button = document.getElementById("enter");
 var input = document.getElementById("userinput");
 var ul = document.querySelector("ul");
 
+var list = document.getElementsByTagName("li");
+var liButton = document.createElement("button");
+
+button.innerHTML = "delete";
+
+
+function liClick(){
+    this.classList.toggle("done");
+  }
+
 function inputLength() {
     return input.value.length;
 }
@@ -50,6 +60,11 @@ function createListElement() {
     li.appendChild(document.createTextNode(input.value));
     ul.appendChild(li);
     input.value = "";
+    
+    for (var i=0; i<list.length; i++){
+    list[i].addEventListener("click", liClick);
+}
+
 }
 button.addEventListener("click", function() {
     if (inputLength() > 0 ) {
@@ -62,3 +77,5 @@ input.addEventListener("keypress", function(event) {
         createListElement();
     }
 })
+
+
